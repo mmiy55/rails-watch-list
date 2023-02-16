@@ -4,10 +4,14 @@
 <ol>
 <% @bookmarks.each do |bookmark| %>
 <li><strong><%= bookmark.movie[:title] %></strong> : <%= bookmark.comment %>
+<%= link_to "Delete", bookmark_path(bookmark.id) , data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 </li>
+
+<%= link_to "Add a bookmark" ,new_list_bookmark_path(bookmark.id) %>
 <%end %>
 </ol>
 
-<%= link_to "Add a bookmark" ,new_list_bookmark_path(params[:id]) %>
+
+
 
 <p>Delete a bookmark</p>
