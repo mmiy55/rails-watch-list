@@ -1,5 +1,15 @@
 <h1> The <%= @list.name %> list</h1>
-
-
-
 <p>Contents goes here</p>
+<p>Current bookmarks</p>
+<ol>
+<% @bookmarks.each do |bookmark| %>
+<li><strong><%= bookmark.movie[:title] %></strong> : <%= bookmark.comment %>
+<%= link_to "Delete" ,new_list_bookmark_path(params[:id]) %>
+
+</li>
+<%end %>
+</ol>
+
+<%= link_to "Add a bookmark" ,bookmark_path(params[:id]) %>
+
+<p>Delete a bookmark</p>
