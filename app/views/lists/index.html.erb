@@ -1,7 +1,7 @@
 <h1>All lists</h1>
 <%= link_to "Create a list" ,new_list_path %>
-<% @lists.each do |list| %>
 <ol>
+<% @lists.each do |list| %>
 <li><%= list.name %></li>
-</ol>
 <% end %>
+</ol>
