@@ -1,17 +1,16 @@
 <h1> The <%= @list.name %> list</h1>
-<p>Contents goes here</p>
 <p>Current bookmarks</p>
-<ol>
-<% @bookmarks.each do |bookmark| %>
-<li><strong><%= bookmark.movie[:title] %></strong> : <%= bookmark.comment %>
-<%= link_to "Delete", bookmark_path(bookmark.id) , data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-</li>
-
-<%= link_to "Add a bookmark" ,new_list_bookmark_path(bookmark.id) %>
+<% if @list.bookmarks.any? %>
+  <ol>
+  <% @bookmarks.each do |bookmark| %>
+  <li><strong><%= bookmark.movie[:title] %></strong> : <%= bookmark.comment %>
+  <%= link_to "Delete", bookmark_path(bookmark.id) , data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  </li>
+  <%end %>
+  <% else %>
+  <p>No bookmars yet</p>
 <%end %>
+<%= link_to "Add a bookmark" ,new_list_bookmark_path(@list.id) %>
 </ol>
 
-
-
-
-<p>Delete a bookmark</p>
+<%= link_to "Back to all the lists" , lists_path %>
