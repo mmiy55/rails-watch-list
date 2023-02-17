@@ -5,7 +5,7 @@
 <div class="cards">
 <% @lists.each do |list| %>
 <%= link_to list_path(list) do  %>
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url((<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://ih1.redbubble.net/image.1109027475.7930/st,small,507x507-pad,600x600,f8f8f8.jpg' %>)">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://ih1.redbubble.net/image.1109027475.7930/st,small,507x507-pad,600x600,f8f8f8.jpg' %>)">
 <%= list.name %>
 </div>
 <%end%>
