@@ -2,9 +2,12 @@
 <%= link_to new_list_path do  %>
   <button type="button" class="btn btn-warning">Create a list</button>
 <%end%>
-<ol>
+<div class="cards">
 <% @lists.each do |list| %>
-<li> <%= link_to list.name, list_path(list)  %>
-</li>
+<%= link_to list_path(list) do  %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://ih1.redbubble.net/image.1109027475.7930/st,small,507x507-pad,600x600,f8f8f8.jpg)">
+<%= list.name %>
+</div>
+<%end%>
 <% end %>
-</ol>
+</div>
