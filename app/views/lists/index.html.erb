@@ -1,5 +1,7 @@
-<h1>All lists</h1>
-<%= link_to "Create a list" ,new_list_path %>
+<h1>My lists</h1>
+<%= link_to new_list_path do  %>
+  <button type="button" class="btn btn-warning">Create a list</button>
+<%end%>
 <ol>
 <% @lists.each do |list| %>
 <li> <%= link_to list.name, list_path(list)  %>
